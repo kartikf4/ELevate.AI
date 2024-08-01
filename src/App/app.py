@@ -1,14 +1,23 @@
 #import required libraries
-import os 
 import streamlit as st
-import pandas as pd 
-from dotenv import load_dotenv,find_dotenv
+#Main page 
 
-load_dotenv()
+about_Page = st.Page(
+    page="/ElEVATE.AI/src/app/About.py",
+    title="About",
+    icon="🎈",
+    default=True
+)
+about_ai_data_page = st.Page(
+    page ="/ELevate.AI/src/App/AIDataScientist.py",
+    title="AI Data Scientist Agent",
+    icon="🤖",
+)
 
-from langchain.chat_models import ChatOpenAI
-from langchain.schema import HumanMessage, SystemMessage
-from langchain_experimental.agents import create_pandas_dataframe_agent
+#naviagtion stepup 
+pg =st.navigation({
+    "INFO":[about_Page],
+    "AI TOOLS":[about_ai_data_page]
+})
+pg.run()
 
-
-st.title("Elevate.AI")
